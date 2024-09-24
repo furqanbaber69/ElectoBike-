@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hides the default checkbox input */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Style for the custom checkbox */
+.checkmark {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%; /* Makes it rounded */
+  border: 1px solid #667085; /* Border color */
+  background-color: transparent;
+  position: relative;
+  transition: background-color 0.2s ease, border-color 0.2s ease; /* Adds a smooth transition for background and border */
+}
+
+/* Checked state for the checkbox */
+.checkbox-container input:checked + .checkmark {
+  background-color: #14c9c9; /* Background when checked */
+  border-color: #14c9c9; /* Border color when checked */
+}
+
+/* Create the white checkmark (tick) with animation */
+.checkbox-container input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 3px; /* Adjust as needed */
+  top: -4px; /* Adjust as needed */
+  width: 2px; /* Start with width 0 for animation */
+  height: 0; /* Start with height 0 for animation */
+  border: 2px solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg); /* Correct rotation for tick */
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease; /* Smooth transition for checkmark appearance */
+  opacity: 0; /* Start with opacity 0 for animation */
+}
+
+/* Expand the checkmark on checked state */
+.checkbox-container input:checked + .checkmark::after {
+  width: 7px; /* Adjust width to fit inside checkbox */
+  height: 14px; /* Adjust height to fit inside checkbox */
+  opacity: 1; /* Full opacity when checked */
+}
+table {
+  text-align: center !important;
+  /* margin-right: -10px !important; */
+  display: flex !important;
+  flex-direction: column !important;
+}
+table thead tr th {
+  margin: 2px !important;
+}
+
+table tr {
+  /* border: 2px solid black !important; */
+  margin: auto auto;
+}
+table tr th {
+  /* border: 2px solid black !important; */
+  padding: 10px !important;
+}
+table tr td {
+  /* border: 2px solid black !important; */
+  padding: 8px 8px !important;
+  margin: 1px;
+  border-radius: 100px;
+}
